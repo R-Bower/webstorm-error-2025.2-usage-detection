@@ -1,0 +1,12 @@
+{
+  "files": [],
+  "compilerOptions": {
+    "paths": {
+      "@project/react-lib/*": ["../react-lib/src/*/index.ts"]
+    }
+  },
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
