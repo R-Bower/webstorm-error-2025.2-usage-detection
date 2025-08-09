@@ -27,7 +27,10 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+    "paths": {
+      "@project/react-lib/*": ["./src/*/index.ts"]
+    }
   },
   "include": ["./src"]
 }

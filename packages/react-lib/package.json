@@ -4,10 +4,10 @@
   "type": "module",
   "exports": {
     "./*": {
-      "types": "./dist/components/*/index.d.ts",
-      "require": "./dist/components/*/index.cjs",
-      "import": "./dist/components/*/index.js",
-      "default": "./dist/components/*/index.js"
+      "types": "./dist/*/index.d.ts",
+      "import": "./dist/*/index.js",
+      "require": "./dist/*/index.cjs",
+      "default": "./dist/*/index.js"
     }
   },
   "scripts": {

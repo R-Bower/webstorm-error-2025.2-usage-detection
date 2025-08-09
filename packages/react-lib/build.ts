@@ -16,21 +16,19 @@ export function hasArg(argv: any[], key: string): boolean {
 
 async function collectEntryPoints() {
   // Create an object with output names as keys and entry points as values
-  return (await collectFolders("./src/components")).reduce(
+  return (await collectFolders("./src")).reduce(
     (acc: Record<string, string>, name) => {
-      acc[`components/${name}/index`] = `./src/components/${name}/index.ts`
+      acc[`${name}/index`] = `./src/${name}/index.ts`
       return acc
     },
-    {
-      index: "./src/index.ts",
-    },
+    {},
   )
 }
 
 async function main(argv: string[]) {
   const buildOpts: BuildOptions = {
     bundle: true,
-    external: ["react", "react-dom"],
+    external: ["react", "react-dom", "@project/react-lib/*"],
     entryPoints: await collectEntryPoints(),
     minify: true,
     outdir: "dist",
