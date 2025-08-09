@@ -7,7 +7,7 @@ WebStorm fails to detect usage when using TypeScript path mappings for internal 
 
 ## Setup
 
-- Single npm package with multiple secondary entrypoints (`package/module-1`, `package/module-2`, etc.)
+- Single npm package with multiple secondary entrypoints (`@project/react-lib/module-1`, `@project/react-lib/module-2`, etc.)
 - Internal cross-module imports use path mapping for consistency with external API and to avoid duplicating code in the final bundle
 
 ## TypeScript Configuration
@@ -37,6 +37,13 @@ export function useModule2() {
 }
 ```
 
+The esbuild configuration results in the following bundle for `module-2`:
+
+```js
+import{useModule1 as o}from"@project/react-lib/module-1";function r(){o()}export{r as useModule2};
+//# sourceMappingURL=index.js.map
+```
+
 ```ts
 // consuming apps
 
@@ -45,6 +52,8 @@ import {useModule2} from "@project/react-lib/module-2"
 
 useModule2()
 ```
+
+
 
 ## Expected Behavior
 
